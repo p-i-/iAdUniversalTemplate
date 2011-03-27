@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Description</key>
+	<string>Use this template to create a project that doesn&apos;t use Interface Builder / .XIB s,  but instead creates its graphical elements by code.   Of course, you can later add .XIBs  and link them in as and when you want.</string>
+</dict>
+</plist>
