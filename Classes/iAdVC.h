@@ -12,15 +12,15 @@
 
 
 @interface iAdVC : UIViewController < ADBannerViewDelegate >
-{ }
+{
+    BOOL showingBanner;
+}
 
 @property CGRect uberFrame;
-//@property BOOL iAdsEnabled;
 
 @property (retain) UIView * contentView;
 
 - (id) init_withFrame : (CGRect) in_frame ;
-                 // iAds: (BOOL) in_iAdsEnabled ;
 
 // OVERRIDE
 - (UIView *) makeViewUsingFrame: (CGRect) viewFrame ;

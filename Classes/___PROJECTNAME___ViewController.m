@@ -79,6 +79,7 @@
 - (void) willRotateToInterfaceOrientation: (UIInterfaceOrientation) newOrientation 
 								 duration: (NSTimeInterval) duration
 {
+    // needed as iAdVC's implementation of this rearranges iAd & contentView
     [super willRotateToInterfaceOrientation: newOrientation
                                    duration: duration ];
     
