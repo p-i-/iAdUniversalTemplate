@@ -9,11 +9,11 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Classes/iAdVC.m"
-         timestampString = "322997566.345515"
+         timestampString = "323087804.127677"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "43"
-         endingLineNumber = "43"
+         startingLineNumber = "45"
+         endingLineNumber = "45"
          landmarkName = "-makeViewUsingFrame:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -23,12 +23,26 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Classes/iAdVC.m"
-         timestampString = "322999382.751357"
+         timestampString = "323088705.152353"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "285"
-         endingLineNumber = "285"
-         landmarkName = "-bannerViewActionShouldBegin:willLeaveApplication:"
+         startingLineNumber = "110"
+         endingLineNumber = "110"
+         landmarkName = "-resizeEverything:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         isPathRelative = "1"
+         filePath = "Classes/iAdVC.m"
+         timestampString = "323090929.861916"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "238"
+         endingLineNumber = "238"
+         landmarkName = "-bannerViewDidLoadAd:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

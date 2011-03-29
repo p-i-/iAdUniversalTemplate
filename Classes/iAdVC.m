@@ -27,15 +27,17 @@
 @synthesize  contentView;
 
 @synthesize uberView, adBannerView;
-@synthesize uberFrame; // , iAdsEnabled;
+@synthesize uberFrame;
 
 - (id) init_withFrame: (CGRect) in_frame
-                // iAds: (BOOL) in_iAdsEnabled
 {
-	uberFrame = in_frame;
-    //iAdsEnabled = in_iAdsEnabled;
+    self = [self init];
+    if (! self)
+        return  nil;
     
-	return [self init];
+	uberFrame = in_frame;
+    
+	return self;
 }
 
 - (UIView *) makeViewUsingFrame: (CGRect) viewFrame 
@@ -55,17 +57,19 @@
 {	
 	NSLog(@"    --> iAdVC : loadView...");
     
+    //NSLog(NSStringFromCGRect(uberFrame));
+    
     self.uberView = [[[UIView alloc] initWithFrame: uberFrame] autorelease];
     self.uberView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     //self.uberView.autoresizesSubviews = YES;
     [self setView: uberView];
     
     
-    self.contentView = [self makeViewUsingFrame: uberFrame]; // [[[MyView alloc] initWithFrame: uberFrame] autorelease];
-    NSLog(@"%@", self.contentView);
+//    self.contentView = [self makeViewUsingFrame: uberFrame]; // [[[MyView alloc] initWithFrame: uberFrame] autorelease];
+//    NSLog(@"%@", self.contentView);
     
     //self.contentView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-	[uberView addSubview: contentView];
+	// [uberView addSubview: contentView];
     
     assert ( ! self.adBannerView );
     showingBanner = NO;
@@ -73,8 +77,8 @@
     [uberView addSubview: adBannerView];
 	
     // don't need!
-    if (0)
-        [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    //if (0)
+    //    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
 }
 
 /* Discussion
@@ -105,38 +109,40 @@
 {
     bool isLandscape = UIInterfaceOrientationIsLandscape(newOrientation);
     
-    float w = uberFrame.size.width, h = uberFrame.size.height;
-    float m = MIN(w, h), M = MAX(w, h);
+//    float w = uberFrame.size.width, h = uberFrame.size.height;
+//    float m = MIN(w, h), M = MAX(w, h);
     
-    CGSize port = CGSizeMake(m, M), land = CGSizeMake(M, m);
+//    CGSize port = CGSizeMake(m, M), land = CGSizeMake(M, m);
     
    
     
     
     // change banner size dep. on orientation
     
-    NSString * contentSize = isLandscape ? ADBannerContentSizeIdentifierLandscape : ADBannerContentSizeIdentifierPortrait ;
+   //NSString * contentSize = isLandscape ? ADBannerContentSizeIdentifierLandscape : ADBannerContentSizeIdentifierPortrait ;
     
-    [self.adBannerView setCurrentContentSizeIdentifier: contentSize];
+    self.adBannerView.currentContentSizeIdentifier = isLandscape ? ADBannerContentSizeIdentifierLandscape : ADBannerContentSizeIdentifierPortrait ;
     
-    CGSize bannerSize = [ADBannerView sizeFromBannerContentSizeIdentifier: contentSize];
+    //[self.adBannerView setCurrentContentSizeIdentifier: contentSize];
+    
+    CGSize bannerSize = [ADBannerView sizeFromBannerContentSizeIdentifier: self.adBannerView.currentContentSizeIdentifier];
 
 	
     
 
-    CGSize f = isLandscape ? land : port;    
+//    CGSize f = isLandscape ? land : port;    
     
     CGRect bannerFrame = CGRectZero;
     if (adBannerView.bannerLoaded)
         bannerFrame.size = bannerSize;
     
-    CGRect contentFrame = CGRectMake(0, 
-                                     bannerFrame.size.height, 
-                                     f.width, 
-                                     f.height - bannerFrame.size.height);
+//    CGRect contentFrame = CGRectMake(0, 
+//                                     bannerFrame.size.height, 
+//                                     f.width, 
+//                                     f.height - bannerFrame.size.height);
     
     self.adBannerView.frame = bannerFrame;
-    self.contentView.frame = contentFrame;
+//    self.contentView.frame = contentFrame;
 }
 
 
@@ -163,21 +169,25 @@
     
     NSString * contentSize = isLandscape ? ADBannerContentSizeIdentifierLandscape : ADBannerContentSizeIdentifierPortrait ;
         
-    CGSize bannerSize = [ADBannerView sizeFromBannerContentSizeIdentifier: contentSize];
-    CGRect bannerFrame = CGRectMake(0, 0, bannerSize.width, bannerSize.height);
+    //CGSize bannerSize = [ADBannerView sizeFromBannerContentSizeIdentifier: contentSize];
+    //CGRect bannerFrame = CGRectMake(0, 0, bannerSize.width, bannerSize.height);
     
-    ADBannerView * B = [ [ [ADBannerView alloc] initWithFrame: bannerFrame] autorelease];
+    ADBannerView * B = [ [ [ADBannerView alloc] initWithFrame: CGRectZero] autorelease];
+    
+    //NSLog(@"%@", NSStringFromCGRect(B.frame));
     
 	if ( ! B ) 
 		return nil;
 	
-    B.currentContentSizeIdentifier = contentSize;
     //B.hidden = NO;
     // B.alpha = 0.;
 	B.delegate = self;
 	B.requiredContentSizeIdentifiers = [NSSet setWithObjects: 
                                           ADBannerContentSizeIdentifierPortrait, 
                                           ADBannerContentSizeIdentifierLandscape, nil ];
+    B.currentContentSizeIdentifier = contentSize;
+    // B.opaque = YES;
+    //NSLog(@"%@", NSStringFromCGRect(B.frame));
     return B;
 }
 
@@ -188,19 +198,43 @@
     bool isLandscape = UIInterfaceOrientationIsLandscape( self.interfaceOrientation );
     NSString * contentSize = isLandscape ? ADBannerContentSizeIdentifierLandscape : ADBannerContentSizeIdentifierPortrait ;
     
+    NSLog(@"BannerFrame BEFORE setCurrentContentSizeIdentifier: %@", NSStringFromCGRect(self.adBannerView.frame));
     [self.adBannerView setCurrentContentSizeIdentifier: contentSize];
+    NSLog(@"BannerFrame AFTER setCurrentContentSizeIdentifier: %@", NSStringFromCGRect(self.adBannerView.frame));
     
     CGSize bannerSize = [ADBannerView sizeFromBannerContentSizeIdentifier: contentSize];
-    self.adBannerView.frame = CGRectMake(0, 0, bannerSize.width, bannerSize.height);
+//    self.adBannerView.frame = CGRectMake(0, 0, bannerSize.width, bannerSize.height);
+    //NSLog(@"%@", NSStringFromCGRect(self.adBannerView.frame)); // {{0, 50}, {320, 430}}
     
     // resize content frame & fade ad in        
-    CGRect newContentFrame = uberView.bounds;
-    newContentFrame.size.height -= bannerSize.height;
-    newContentFrame.origin.y += bannerSize.height;   
+//    CGRect newContentFrame = uberView.bounds;
+//    newContentFrame.size.height -= bannerSize.height;
+//    newContentFrame.origin.y += bannerSize.height;   
     
-    NSLog(@"%@", NSStringFromCGRect(newContentFrame)); // {{0, 50}, {320, 430}}
-    if (1)
-        self.contentView.frame = newContentFrame; // NOW CANT CLICK AD
+//    NSLog(@"%@", NSStringFromCGRect(self.contentView.frame)); // {{0, 50}, {320, 430}}
+
+//    if (0) // 0 works
+//        self.contentView.frame = newContentFrame; // 1 => CANT CLICK AD
+
+    
+    //self.uberView.clipsToBounds
+    
+    self.adBannerView.frame = CGRectMake(0, 0, bannerSize.width, bannerSize.height);
+
+    
+        self.adBannerView.opaque = YES;
+    
+    UIWindow * w = self.view.window;
+    NSLog(@"WINDOW ... %@", w);
+    for (id x in w.subviews)
+        NSLog(@"--> WINDOW : SUBVIEW ... %@", x);
+ 
+    // confirm w.view == self.view == uberView
+    NSLog(@"--> %@", self.view);
+    NSLog(@"--> %@", uberView);
+    
+    for (id x in uberView.subviews)
+        NSLog(@"--> --> AD BANNER... %@", x);
 }
 
 
@@ -260,6 +294,8 @@
 - (void) bannerView: (ADBannerView *) banner 
 didFailToReceiveAdWithError: (NSError *) error
 {
+    NSLog(@"FAIL");
+    
     if (showingBanner) // ! self.adBannerView.hidden)
     {
         showingBanner = NO;
@@ -270,7 +306,7 @@ didFailToReceiveAdWithError: (NSError *) error
         NSTimeInterval duration = 0.5;
         [UIView animateWithDuration: duration
                          animations: ^ { 
-                             self.contentView.frame = uberView.bounds; 
+                             // self.contentView.frame = uberView.bounds; 
                          }
                          completion: nil 
          ];
@@ -303,7 +339,7 @@ didFailToReceiveAdWithError: (NSError *) error
 - (void) dealloc
 {
     [self.adBannerView removeFromSuperview]; self.adBannerView.delegate = nil; [self.adBannerView release]; self.adBannerView = nil;
-    [self.contentView removeFromSuperview]; [self.contentView release]; self.contentView = nil;
+    //[self.contentView removeFromSuperview]; [self.contentView release]; self.contentView = nil;
     
     [self.uberView removeFromSuperview]; [self.uberView release]; self.uberView = nil;
     
