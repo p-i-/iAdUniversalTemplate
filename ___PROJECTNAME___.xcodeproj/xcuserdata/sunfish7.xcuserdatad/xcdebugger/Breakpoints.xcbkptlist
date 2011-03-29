@@ -9,41 +9,33 @@
          continueAfterRunningActions = "No"
          isPathRelative = "1"
          filePath = "Classes/iAdVC.m"
-         timestampString = "323087804.127677"
+         timestampString = "323097101.082636"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "45"
-         endingLineNumber = "45"
+         startingLineNumber = "35"
+         endingLineNumber = "35"
          landmarkName = "-makeViewUsingFrame:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
-         continueAfterRunningActions = "No"
+         continueAfterRunningActions = "Yes"
          isPathRelative = "1"
-         filePath = "Classes/iAdVC.m"
-         timestampString = "323088705.152353"
+         filePath = "Classes/AppDelegate.m"
+         timestampString = "323094139.593642"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "110"
-         endingLineNumber = "110"
-         landmarkName = "-resizeEverything:"
+         startingLineNumber = "33"
+         endingLineNumber = "33"
+         landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "Yes"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         isPathRelative = "1"
-         filePath = "Classes/iAdVC.m"
-         timestampString = "323090929.861916"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "238"
-         endingLineNumber = "238"
-         landmarkName = "-bannerViewDidLoadAd:"
-         landmarkType = "5">
+         <Actions>
+            <LogAction
+               message = "p @windowRect@"
+               conveyanceType = "0">
+            </LogAction>
+         </Actions>
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

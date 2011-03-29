@@ -16,12 +16,6 @@
     BOOL showingBanner;
 }
 
-@property CGRect uberFrame;
-
-@property (retain) UIView * contentView;
-
-- (id) init_withFrame : (CGRect) in_frame ;
-
 // OVERRIDE
 - (UIView *) makeViewUsingFrame: (CGRect) viewFrame ;
 
