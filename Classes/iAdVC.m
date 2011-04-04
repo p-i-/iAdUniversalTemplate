@@ -220,28 +220,31 @@ didFailToReceiveAdWithError: (NSError *) error
 - (void) willRotateToInterfaceOrientation: (UIInterfaceOrientation) newOrientation 
 								 duration: (NSTimeInterval) duration
 {
+    if (! adBannerView)
+        return;
+    
     bool isLandscape = UIInterfaceOrientationIsLandscape(newOrientation);
     self.adBannerView.currentContentSizeIdentifier = isLandscape ? ADBannerContentSizeIdentifierLandscape : ADBannerContentSizeIdentifierPortrait ;
     
-    if (! adBannerView.hidden)
-    {
-        CGSize bannerSize = [iAdVC bannerSizeForOrientation: newOrientation];
-        CGRect bannerRect = CGRectMake(0, 0, bannerSize.width, bannerSize.height);    
-        
-        CGRect newContentFrame = uberView.bounds;
-        newContentFrame.size.height -= bannerSize.height;
-        newContentFrame.origin.y += bannerSize.height;  
-        
-        [UIView animateWithDuration: duration
-                              delay: .0 
-                            options: UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionLayoutSubviews
-                         animations: ^ { 
-                             self.contentView.frame = newContentFrame; 
-                             self.adBannerView.frame = bannerRect;
-                         } 
-                         completion: nil
-         ];
-    }
+    if (adBannerView.hidden)
+        return;
+    
+    CGSize bannerSize = [iAdVC bannerSizeForOrientation: newOrientation];
+    CGRect bannerRect = CGRectMake(0, 0, bannerSize.width, bannerSize.height);    
+    
+    CGRect newContentFrame = uberView.bounds;
+    newContentFrame.size.height -= bannerSize.height;
+    newContentFrame.origin.y += bannerSize.height;  
+    
+    [UIView animateWithDuration: duration
+                          delay: .0 
+                        options: UIViewAnimationOptionAllowUserInteraction | UIViewAnimationOptionLayoutSubviews
+                     animations: ^ { 
+                         self.contentView.frame = newContentFrame; 
+                         self.adBannerView.frame = bannerRect;
+                     } 
+                     completion: nil
+     ];
 }
 
 // = = = = = = = = = = = = = = = = = = = = = = = = = = 

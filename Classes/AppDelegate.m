@@ -8,6 +8,7 @@
 #import "Settings.h"
 #import "AppDelegate.h"
 #import "___PROJECTNAME___ViewController.h"
+#import "Appirater.h"
 
 @implementation ___PROJECTNAME___AppDelegate
 
@@ -37,9 +38,15 @@ didFinishLaunchingWithOptions: (NSDictionary *) launchOptions
     // triggers loadView
     [self.window makeKeyAndVisible];
 	
+    [Appirater appLaunched: YES];
+    
 	return YES;
 }
 
+- (void) applicationWillEnterForeground: (UIApplication *) application
+{
+    [Appirater appEnteredForeground: YES];
+}
 
 - (void)dealloc 
 {

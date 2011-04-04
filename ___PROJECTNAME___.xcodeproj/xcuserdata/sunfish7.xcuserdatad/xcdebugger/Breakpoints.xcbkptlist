@@ -23,11 +23,11 @@
          continueAfterRunningActions = "Yes"
          isPathRelative = "1"
          filePath = "Classes/AppDelegate.m"
-         timestampString = "323111579.32888"
+         timestampString = "323597880.347013"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
          landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
          <Actions>

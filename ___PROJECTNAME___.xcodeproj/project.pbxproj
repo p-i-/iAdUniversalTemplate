@@ -14,8 +14,13 @@
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		288765A50DF7441C002DB57D /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 288765A40DF7441C002DB57D /* CoreGraphics.framework */; };
+		A337188B1349B2E300790308 /* Appirater.m in Sources */ = {isa = PBXBuildFile; fileRef = A33718891349B2E300790308 /* Appirater.m */; };
+		A337188C1349B2E300790308 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A337188A1349B2E300790308 /* README.md */; };
+		A337188F1349B34B00790308 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A337188E1349B34B00790308 /* CFNetwork.framework */; };
+		A33718911349B36C00790308 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A33718901349B36C00790308 /* SystemConfiguration.framework */; };
 		A35582F9133E6B82007B2C8B /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A35582F8133E6B82007B2C8B /* iAd.framework */; };
 		A3641862133F635600DB3F1C /* iAdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = A3641861133F635600DB3F1C /* iAdVC.m */; };
+		A3E0620C1348A3A400BE1C60 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = A3E0620B1348A3A400BE1C60 /* README.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,10 +37,16 @@
 		1D6058910D05DD3D006BFB54 /* ___PROJECTNAME___.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "___PROJECTNAME___.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		288765A40DF7441C002DB57D /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
+		A33718881349B2E300790308 /* Appirater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Appirater.h; sourceTree = "<group>"; };
+		A33718891349B2E300790308 /* Appirater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Appirater.m; sourceTree = "<group>"; };
+		A337188A1349B2E300790308 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		A337188E1349B34B00790308 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A33718901349B36C00790308 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		A35582F8133E6B82007B2C8B /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		A3641860133F635600DB3F1C /* iAdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = iAdVC.h; sourceTree = "<group>"; };
 		A3641861133F635600DB3F1C /* iAdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iAdVC.m; sourceTree = "<group>"; };
+		A3E0620B1348A3A400BE1C60 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = README.rtf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A33718911349B36C00790308 /* SystemConfiguration.framework in Frameworks */,
+				A337188F1349B34B00790308 /* CFNetwork.framework in Frameworks */,
 				A35582F9133E6B82007B2C8B /* iAd.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
@@ -56,10 +69,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				0E76472812277D880041A30C /* AppDelegate.h */,
-				0E76472912277D880041A30C /* AppDelegate.m */,
-				A3641860133F635600DB3F1C /* iAdVC.h */,
-				A3641861133F635600DB3F1C /* iAdVC.m */,
+				A337188D1349B2FF00790308 /* Template */,
 				0E76472A12277D880041A30C /* ___PROJECTNAME___ViewController.h */,
 				0E76472B12277D880041A30C /* ___PROJECTNAME___ViewController.m */,
 				0E76472712277D880041A30C /* MyView.h */,
@@ -79,6 +89,9 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				A33718901349B36C00790308 /* SystemConfiguration.framework */,
+				A337188E1349B34B00790308 /* CFNetwork.framework */,
+				A3E0620B1348A3A400BE1C60 /* README.rtf */,
 				A35582F8133E6B82007B2C8B /* iAd.framework */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
@@ -92,7 +105,6 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
-				29B97316FDCFA39411CA2CEA /* main.m */,
 				0E7646B612276FC10041A30C /* Settings.h */,
 				0EC8996A1227BC0D004454C2 /* ___PROJECTNAME____Prefix.pch */,
 			);
@@ -115,6 +127,29 @@
 				288765A40DF7441C002DB57D /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A33718861349B2CD00790308 /* AppiRater */ = {
+			isa = PBXGroup;
+			children = (
+				A33718881349B2E300790308 /* Appirater.h */,
+				A33718891349B2E300790308 /* Appirater.m */,
+				A337188A1349B2E300790308 /* README.md */,
+			);
+			name = AppiRater;
+			sourceTree = "<group>";
+		};
+		A337188D1349B2FF00790308 /* Template */ = {
+			isa = PBXGroup;
+			children = (
+				29B97316FDCFA39411CA2CEA /* main.m */,
+				0E76472812277D880041A30C /* AppDelegate.h */,
+				0E76472912277D880041A30C /* AppDelegate.m */,
+				A3641860133F635600DB3F1C /* iAdVC.h */,
+				A3641861133F635600DB3F1C /* iAdVC.m */,
+				A33718861349B2CD00790308 /* AppiRater */,
+			);
+			name = Template;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +198,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3E0620C1348A3A400BE1C60 /* README.rtf in Resources */,
+				A337188C1349B2E300790308 /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +215,7 @@
 				0E76472C12277D880041A30C /* AppDelegate.m in Sources */,
 				0E76472D12277D880041A30C /* ___PROJECTNAME___ViewController.m in Sources */,
 				A3641862133F635600DB3F1C /* iAdVC.m in Sources */,
+				A337188B1349B2E300790308 /* Appirater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

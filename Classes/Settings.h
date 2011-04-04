@@ -10,4 +10,4 @@
  window to draw full-screen behind it. If you want this, you may need to fiddle 
  with self.viewController.wantsFullScreenLayout */
 #define SHOW_SB NO
-#define IADS_ENABLED YES
+#define IADS_ENABLED NO
